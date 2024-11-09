@@ -599,8 +599,16 @@ body {
   position: relative;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .left-2 {
   left: 0.5rem;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .z-50 {
@@ -617,9 +625,9 @@ body {
   margin-bottom: 0.25rem;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mb-2 {
@@ -676,12 +684,12 @@ body {
   height: 1px;
 }
 
-.min-h-screen {
-  min-height: 100vh;
+.h-screen {
+  height: 100vh;
 }
 
-.w-14 {
-  width: 3.5rem;
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-2 {
@@ -713,6 +721,10 @@ body {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .min-w-\[8rem\] {
   min-width: 8rem;
 }
@@ -727,8 +739,12 @@ body {
           user-select: none;
 }
 
-.grid-cols-\[auto_2fr_1fr_auto\] {
-  grid-template-columns: auto 2fr 1fr auto;
+.grid-cols-\[auto_1fr_3fr_2fr_auto\] {
+  grid-template-columns: auto 1fr 3fr 2fr auto;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -739,12 +755,20 @@ body {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-around {
   justify-content: space-around;
 }
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-x-2 {
@@ -806,6 +830,27 @@ body {
   background-color: hsl(var(--popover));
 }
 
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+
+.bg-zinc-500\/50 {
+  background-color: rgb(113 113 122 / 0.5);
+}
+
+.bg-zinc-50\/50 {
+  background-color: rgb(250 250 250 / 0.5);
+}
+
+.bg-zinc-900\/50 {
+  background-color: rgb(24 24 27 / 0.5);
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .fill-current {
   fill: currentColor;
 }
@@ -826,6 +871,10 @@ body {
   padding: 1.5rem;
 }
 
+.p-8 {
+  padding: 2rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -839,6 +888,16 @@ body {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pb-2 {
@@ -905,9 +964,9 @@ body {
   color: rgb(113 113 122 / var(--tw-text-opacity));
 }
 
-.text-zinc-700 {
+.text-zinc-600 {
   --tw-text-opacity: 1;
-  color: rgb(63 63 70 / var(--tw-text-opacity));
+  color: rgb(82 82 91 / var(--tw-text-opacity));
 }
 
 .text-zinc-800 {

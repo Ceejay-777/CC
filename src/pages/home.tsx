@@ -1,6 +1,6 @@
 import Table from "../components/table"
 import Sectionheader from "../components/sectionheader.tsx"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { addProduct, getProducts } from "@/storage.ts"
 
 const Home = () => {
@@ -9,8 +9,8 @@ const Home = () => {
   const [products, setProducts] = useState(getProducts())
 
   const handleAddProduct = () => {
-    console.log(name, price)
     if (name && price) {
+      console.log(name, price)
       const product = { name, price: parseFloat(price) }
       addProduct(product)
       setProducts(getProducts())
@@ -19,13 +19,8 @@ const Home = () => {
     }
   }
 
-  useEffect(() => {
-    // addData()
-  })
-
   return (
-    <div>
-      <div className="p-6 min-h-screen">
+      <div className="p-6 min-h-screen relative">
         <section className="mb-2">
           <Sectionheader>Enter a new product</Sectionheader>
           <div className="flex w-full justify-around items-center">
@@ -54,7 +49,6 @@ const Home = () => {
           <Table tableData={products} />
         </section>
       </div>
-    </div>
   )
 }
 

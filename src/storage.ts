@@ -58,3 +58,9 @@ export function searchProducts(searchTerm: string) {
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 }
+
+export const getSingleProduct = (productId: number) => {
+    const products = getProducts()
+    const product: SavedProductDetail | undefined = products.find((product) => productId === product.id)
+    return product || null
+}
