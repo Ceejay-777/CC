@@ -1,7 +1,7 @@
 import { ProductDetail } from "./types";
 
 export const products: ProductDetail[] = [
-    { name: "Organic Almonds", price: 9.99 },
+    { name: "Organic Almonds", price: 9.99},
     { name: "Whole Wheat Bread", price: 3.49 },
     { name: "Greek Yogurt", price: 1.99 },
     { name: "Avocado", price: 1.29 },
