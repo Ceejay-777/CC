@@ -1,7 +1,7 @@
 import Table from "../components/table"
 import Sectionheader from "../components/sectionheader.tsx"
-import { FormEventHandler, useEffect, useState } from "react"
-import { addData, addProduct, getProducts } from "@/storage.ts"
+import { useEffect, useState } from "react"
+import { addProduct, getProducts } from "@/storage.ts"
 
 const Home = () => {
   const [name, setName] = useState("")

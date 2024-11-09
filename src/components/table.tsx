@@ -1,4 +1,4 @@
-import { addData, deleteProduct, getProducts } from "@/storage.ts"
+import { deleteProduct, getProducts } from "@/storage.ts"
 import { SavedProductDetail } from "../../types.ts"
 import { useEffect, useState } from "react"
 
