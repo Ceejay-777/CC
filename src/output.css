@@ -591,6 +591,10 @@ body {
   color: hsl(var(--foreground));
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -630,6 +634,10 @@ body {
   margin-bottom: 0.25rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -648,6 +656,10 @@ body {
 
 .flex {
   display: flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -704,8 +716,8 @@ body {
   width: 1rem;
 }
 
-.w-8 {
-  width: 2rem;
+.w-6 {
+  width: 1.5rem;
 }
 
 .w-\[120px\] {
@@ -725,12 +737,16 @@ body {
   width: 100vw;
 }
 
-.w-6 {
-  width: 1.5rem;
-}
-
 .min-w-\[8rem\] {
   min-width: 8rem;
+}
+
+.max-w-\[320px\] {
+  max-width: 320px;
+}
+
+.max-w-\[720px\] {
+  max-width: 720px;
 }
 
 .cursor-default {
@@ -745,6 +761,10 @@ body {
 
 .grid-cols-\[1fr_auto_3fr_2fr_auto\] {
   grid-template-columns: 1fr auto 3fr 2fr auto;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .flex-wrap {

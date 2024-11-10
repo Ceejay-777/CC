@@ -54,10 +54,12 @@ export function deleteProduct(productId: number) {
 }
 
 export function searchProducts(searchTerm: string) {
-  const products = getProducts();
-  return products.filter((product: SavedProductDetail) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+        console.log(searchTerm)
+        const products = getProducts();
+        const searchResults: SavedProductDetail[] = products.filter((product: SavedProductDetail) =>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        return searchResults || []
 }
 
 export const getSingleProduct = (productId: number) => {

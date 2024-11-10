@@ -1,10 +1,14 @@
 import { getSingleProduct, updatePrice } from "@/storage"
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react"
 
 const EditOverlay = ({ setEditing, productId }: { setEditing: Dispatch<SetStateAction<boolean>>, productId: number }) => {
     const product = getSingleProduct(productId) || {name: "", price: 0.00}
     const [name, setName] = useState(product.name)
-    const [price, setPrice] = useState(product.price)
+    const [price, setPrice] = useState(product.price || 0.00)
+
+    useEffect(() => {
+        console.log(productId)
+    })
 
     const handleUpdate = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault()
@@ -13,7 +17,7 @@ const EditOverlay = ({ setEditing, productId }: { setEditing: Dispatch<SetStateA
     }
 
     return (
-        <div className='absolute w-screen h-screen top-0 left-0 flex justify-center items-center bg-zinc-900/50 p-8' onClick={(event) => {
+        <div className='fixed w-screen h-screen top-0 left-0 flex justify-center items-center bg-zinc-900/50 p-8 z-50' onClick={(event) => {
             event.stopPropagation()
             setEditing(false)
         }}>
