@@ -29,12 +29,13 @@ export const addData = () => {
   });
 };
 
-export function updatePrice(productId: number, newPrice: number) {
+export function updatePrice(productId: number, newName: string, newPrice: number) {
   const products = getProducts();
   const updatedProducts = products.map((product: SavedProductDetail) => {
     if (product.id === productId) {
       return {
         ...product,
+        name: newName,
         price: newPrice,
         lastUpdated: new Date().toISOString(),
       };

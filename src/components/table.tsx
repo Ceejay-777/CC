@@ -12,16 +12,17 @@ const Table = ({ tableData }: { tableData: SavedProductDetail[] }) => {
         setProducts(tableData)
     }, [tableData])
 
-    // const handleEdit = (productId: number) => {
-    //     // setEditing(true)
-
-    // }
+    useEffect(() => {
+        if(!editing) {
+            setProducts(getProducts())
+        }
+    }, [editing])
 
     return (
         <div className="border rounded-xl p-6 font-semibold">
-            <div className="grid grid-cols-[auto_1fr_3fr_2fr_auto] w-full pb-2 border-b-2 mb-2 text-zinc-500">
-                <p className="pr-2 text-zinc-500">#</p>
-                <p className="w-8">Del</p>
+            <div className="grid grid-cols-[1fr_auto_3fr_2fr_auto] w-full pb-2 border-b-2 mb-2 text-zinc-500 gap-x-2">
+            <div className="w-6"></div>
+                <p className="w-4 text-zinc-500">#</p>
                 <p>Product</p>
                 <p>Price</p>
                 <p className="text-center">Edit</p>
@@ -29,9 +30,9 @@ const Table = ({ tableData }: { tableData: SavedProductDetail[] }) => {
             {products[0] ? products.map((product, index) => {
                 if (products[0]) {
                     return (
-                        <div className="grid grid-cols-[auto_1fr_3fr_2fr_auto] items-center w-full py-3 border-b font-semibold gap-x-2 last:border-b-0" key={index}>
-                            <p className="text-zinc-500">{index + 1}</p>
+                        <div className="grid grid-cols-[1fr_auto_3fr_2fr_auto] items-center w-full py-3 border-b font-semibold gap-x-2 last:border-b-0" key={index}>
                             <Delete productId={product.id} setProducts={setProducts} />
+                            <p className="text-zinc-500 w-4">{index + 1}</p>
                             <p>{product.name}</p>
                             <p className="tracking-tighter font-mono"><span
                                 className="text-zinc-600">#</span>{product.price}</p>
@@ -70,7 +71,7 @@ const Delete = ({ productId, setProducts }: { productId: number, setProducts: (p
     }
 
     return (
-        <div onClick={handleDelete} className="w-8">
+        <div onClick={handleDelete} className="w-6">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="red" className="size-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
             </svg>

@@ -1,4 +1,4 @@
-import { getSingleProduct } from "@/storage"
+import { getSingleProduct, updatePrice } from "@/storage"
 import { Dispatch, SetStateAction, useState } from "react"
 
 const EditOverlay = ({ setEditing, productId }: { setEditing: Dispatch<SetStateAction<boolean>>, productId: number }) => {
@@ -8,6 +8,7 @@ const EditOverlay = ({ setEditing, productId }: { setEditing: Dispatch<SetStateA
 
     const handleUpdate = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault()
+        updatePrice(productId, name, price)
         setEditing(false)
     }
 
