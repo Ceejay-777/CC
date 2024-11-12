@@ -9,7 +9,7 @@ const Home = () => {
   const [products, setProducts] = useState(getProducts())
 
   return (
-    <div className="p-6 min-h-screen">
+    <>
       <section className="mb-2">
         <Sectionheader>Enter a new product</Sectionheader>
         <AddProduct setProducts={setProducts} />
@@ -20,7 +20,7 @@ const Home = () => {
         <Search setProducts={setProducts} />
         <Table tableData={products} />
       </section>
-    </div>
+    </>
   )
 }
 
