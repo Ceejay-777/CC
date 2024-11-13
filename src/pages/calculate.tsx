@@ -51,17 +51,21 @@ const Calculate = () => {
             <section>
                 <Sectionheader>Results</Sectionheader>
                 <div className="text-lg font-semibold flex flex-col gap-4">
-                    <div>
+                    <div className="flex items-center gap-4">
                         <label htmlFor="bulkProfit" className="text-lg mb-1 font-semibold text-zinc-700">Bulk Profit: </label>
-                        <input type="number" name="bulkProfit" placeholder="0.00" className="border-black border h-12 rounded-lg p-2 text-zinc-800 placeholder:text-zinc-500 font-semibold tracking-tighter w-1/2" min={0} value={bulkProfit} disabled />
+                        <p className="border-black border h-12 rounded-lg p-2 text-zinc-800 font-semibold tracking-tighter w-1/2">{bulkProfit}</p>
+                        {/* <input type="number" name="bulkProfit" placeholder="0.00" className="border-black border h-12 rounded-lg p-2 text-zinc-800 placeholder:text-zinc-500 font-semibold tracking-tighter w-1/2" min={0} value={bulkProfit} disabled /> */}
                     </div>
-                    <div>
+                    <div className="flex items-center gap-4">
                         <label htmlFor="unitProfit" className="text-lg mb-1 font-semibold text-zinc-700">Unit Profit: </label>
-                        <input type="number" name="unitProfit" placeholder="0.00" className="border-black border h-12 rounded-lg p-2 text-zinc-800 placeholder:text-zinc-500 font-semibold tracking-tighter w-1/2" min={0} value={unitProfit} disabled />
+
+                        <p className="border-black border h-12 rounded-lg p-2 text-zinc-800 font-semibold tracking-tighter w-1/2">{unitProfit}</p>
+                        {/* <input type="number" name="unitProfit" placeholder="0.00" className="border-black border h-12 rounded-lg p-2 text-zinc-800 placeholder:text-zinc-500 font-semibold tracking-tighter w-1/2" min={0} value={unitProfit} disabled /> */}
                     </div>
-                    <div>
+                    <div className="flex items-center gap-4">
                         <label htmlFor="unitPrice" className="text-lg mb-1 font-semibold text-zinc-700">Unit Price: </label>
-                        <input type="number" name="unitPrice" placeholder="0.00" className="border-black border h-12 rounded-lg p-2 text-zinc-800 placeholder:text-zinc-500 font-semibold tracking-tighter w-1/2" min={0} value={unitPrice} disabled />
+                        <p className="border-black border h-12 rounded-lg p-2 text-zinc-800 font-semibold tracking-tighter w-1/2">{unitPrice}</p>
+                        {/* <input type="number" name="unitPrice" placeholder="0.00" className="border-black border h-12 rounded-lg p-2 text-zinc-800 placeholder:text-zinc-500 font-semibold tracking-tighter w-1/2" min={0} value={unitPrice} disabled /> */}
                     </div>
                 </div>
             </section>
