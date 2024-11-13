@@ -1,7 +1,7 @@
 import { getSingleProduct, updatePrice } from "@/storage"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 
-const EditOverlay = ({ setEditing, productId }: { setEditing: Dispatch<SetStateAction<boolean>>, productId: number }) => {
+const EditOverlay = ({ setEditing, productId }: { setEditing: Dispatch<SetStateAction<boolean>>, productId: string }) => {
     const product = getSingleProduct(productId) || {name: "", price: 0.00}
     const [name, setName] = useState(product.name)
     const [price, setPrice] = useState(product.price || 0.00)

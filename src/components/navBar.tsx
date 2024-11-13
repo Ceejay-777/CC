@@ -18,7 +18,7 @@ const NavBar = () => {
                     return (
                         <li className="w-1/5 h-full" key={index}> {/*Change key later*/}
                             <NavLink to={href} className={({ isActive }) =>
-                                `w-full h-full flex flex-col border-t-4 border-black justify-center items-center ${isActive && "border-zinc-500"}`
+                                `w-full h-full flex flex-col border-t-4 border-black justify-center items-center ${isActive && "border-zinc-400"}`
                             }>
                                 <Icon size={26} color={'white'} />
                                 <p className="text-white text-xs">{label}</p>

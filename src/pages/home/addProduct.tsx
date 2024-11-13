@@ -1,20 +1,20 @@
-import { addProduct, getProducts } from '@/storage'
+import { addProduct, getProducts } from '@/firebaseStorage'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { SavedProductDetail } from 'types'
 
-const AddProduct = ({setProducts}: {setProducts: Dispatch<SetStateAction<SavedProductDetail[]>>}) => {
+const AddProduct = ({ setProducts }: { setProducts: Dispatch<SetStateAction<Promise<SavedProductDetail[]>>> }) => {
     const [name, setName] = useState("")
-  const [price, setPrice] = useState("")
+    const [price, setPrice] = useState("")
 
-  const handleAddProduct = () => {
-    if (name && price) {
-      const product = { name, price: parseFloat(price) }
-      addProduct(product)
-      setProducts(getProducts())
-      setName('')
-      setPrice('')
+    const handleAddProduct = () => {
+        if (name && price) {
+            const product = { name, price: parseFloat(price) }
+            addProduct(product)
+            setProducts(getProducts())
+            setName('')
+            setPrice('')
+        }
     }
-  }
     return (
         <div className="flex w-full justify-around items-center flex-wrap">
             <div>

@@ -7,7 +7,12 @@ export type ProductDetail = {
 export type SavedProductDetail = {
   name: string;
   price: number;
-  id: number;
+  id: string;
   createdAt: string;
   lastUpdated: string;
 };
+
+export type IsError = {
+  isError: boolean
+  msg: string
+}
