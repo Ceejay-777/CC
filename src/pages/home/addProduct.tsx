@@ -8,7 +8,6 @@ const AddProduct = ({setProducts}: {setProducts: Dispatch<SetStateAction<SavedPr
 
   const handleAddProduct = () => {
     if (name && price) {
-      console.log(name, price)
       const product = { name, price: parseFloat(price) }
       addProduct(product)
       setProducts(getProducts())
