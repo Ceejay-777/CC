@@ -74,11 +74,10 @@ export async function fbSearchProducts(searchTerm: string) {
     id: doc.id,
   }));
   return products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    product.name.toLowerCase().startsWith(searchTerm.toLowerCase())
   );
 }
 
-// Get single product
 export async function fbGetSingleProduct(productId: string) {
   const productRef = doc(db, "products", productId);
   const snapshot = await getDoc(productRef);
