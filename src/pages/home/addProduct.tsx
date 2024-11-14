@@ -1,5 +1,6 @@
 import { fbAddProduct } from '@/firebaseStorage'
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 const AddProduct = () => {
     const [name, setName] = useState("")
@@ -9,6 +10,7 @@ const AddProduct = () => {
         if (name && price) {
             const product = { name, price: parseFloat(price) }
             fbAddProduct(product)
+            toast.success("Product added successfully")
             setName('')
             setPrice('')
         }

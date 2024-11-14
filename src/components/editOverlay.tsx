@@ -1,5 +1,6 @@
 import {  fbUpdatePrice } from "@/firebaseStorage"
 import { Dispatch, SetStateAction, useState } from "react"
+import toast from "react-hot-toast"
 
 const EditOverlay = ({ setEditing, productId, productName, productPrice }: { setEditing: Dispatch<SetStateAction<boolean>>, productId: string, productName:string, productPrice:number }) => {
     const [name, setName] = useState(productName)
@@ -8,6 +9,7 @@ const EditOverlay = ({ setEditing, productId, productName, productPrice }: { set
     const handleUpdate = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault()
         fbUpdatePrice(productId, name, price)
+        toast.success(`${name} edited successfully`)
         setEditing(false)
     }
 

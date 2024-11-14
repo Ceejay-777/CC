@@ -75,7 +75,7 @@ const Table = () => {
                 {(!isLoading && !error?.isError) && (products.length > 0 ? products.map((product, index) => {
                     return (
                         <div className="grid grid-cols-[1fr_auto_3fr_2fr_auto] items-center w-full py-3 border-b font-semibold gap-x-2 last:border-b-0" key={index}>
-                            <Delete productId={product.id} setError={setError} />
+                            <Delete productId={product.id} setError={setError} name={product.name}/>
                             <p className="text-zinc-500 w-4">{index + 1}</p>
                             <p>{product.name}</p>
                             <p className="tracking-tighter font-mono"><span
