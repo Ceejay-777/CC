@@ -16,7 +16,7 @@ import { ProductDetail, SavedProductDetail } from "types";
 
 const productsRef = collection(db, 'products')
 
-export async function getProducts(): Promise<SavedProductDetail[]> {
+export async function fbGetProducts(): Promise<SavedProductDetail[]> {
     try {
         const snapshot = await getDocs(query(productsRef, orderBy('createdAt', 'desc')));
         return snapshot.docs.map(doc => ({
@@ -33,9 +33,10 @@ export async function getProducts(): Promise<SavedProductDetail[]> {
     }
 }
 
-export async function addProduct(product: ProductDetail) {
+export async function fbAddProduct(product: ProductDetail) {
   const newProduct = {
     ...product,
+    originalId: Date.now().toString(),
     createdAt: new Date().toISOString(),
     lastUpdated: new Date().toISOString(),
   };
@@ -46,7 +47,7 @@ export async function addProduct(product: ProductDetail) {
   };
 }
 
-export async function updatePrice(
+export async function fbUpdatePrice(
   productId: string,
   newName: string,
   newPrice: number
@@ -60,13 +61,13 @@ export async function updatePrice(
 }
 
 // Delete product
-export async function deleteProduct(productId: string) {
+export async function fbDeleteProduct(productId: string) {
   const productRef = doc(db, "products", productId);
   await deleteDoc(productRef);
 }
 
 // Search products
-export async function searchProducts(searchTerm: string) {
+export async function fbSearchProducts(searchTerm: string) {
   const snapshot = await getDocs(productsRef);
   const products = snapshot.docs.map((doc) => ({
     ...(doc.data() as SavedProductDetail),
@@ -78,9 +79,10 @@ export async function searchProducts(searchTerm: string) {
 }
 
 // Get single product
-export async function getSingleProduct(productId: string) {
+export async function fbGetSingleProduct(productId: string) {
   const productRef = doc(db, "products", productId);
   const snapshot = await getDoc(productRef);
+  console.log(snapshot)
   if (!snapshot.exists()) return null;
   return {
     ...snapshot.data(),

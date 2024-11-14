@@ -14,7 +14,7 @@ export function addProduct(product: ProductDetail) {
   const products = getProducts();
   const newProduct: SavedProductDetail = {
     ...product,
-    id: Date.now(),
+    id: Date.now().toString(),
     createdAt: new Date().toISOString(),
     lastUpdated: new Date().toISOString(),
   };
@@ -29,7 +29,7 @@ export const addData = () => {
   });
 };
 
-export function updatePrice(productId: number, newName: string, newPrice: number) {
+export function updatePrice(productId: string, newName: string, newPrice: number) {
   const products = getProducts();
   const updatedProducts = products.map((product: SavedProductDetail) => {
     if (product.id === productId) {
@@ -45,7 +45,7 @@ export function updatePrice(productId: number, newName: string, newPrice: number
   saveProducts(updatedProducts);
 }
 
-export function deleteProduct(productId: number) {
+export function deleteProduct(productId: string) {
   const products = getProducts();
   const updatedProducts = products.filter(
     (product: SavedProductDetail) => product.id !== productId
@@ -62,7 +62,7 @@ export function searchProducts(searchTerm: string) {
         return searchResults || []
 }
 
-export const getSingleProduct = (productId: number) => {
+export const getSingleProduct = (productId: string) => {
     const products = getProducts()
     const product: SavedProductDetail | undefined = products.find((product) => productId === product.id)
     return product || null

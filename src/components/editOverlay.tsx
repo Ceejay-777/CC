@@ -1,18 +1,13 @@
-import { getSingleProduct, updatePrice } from "@/storage"
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import {  fbUpdatePrice } from "@/firebaseStorage"
+import { Dispatch, SetStateAction, useState } from "react"
 
-const EditOverlay = ({ setEditing, productId }: { setEditing: Dispatch<SetStateAction<boolean>>, productId: string }) => {
-    const product = getSingleProduct(productId) || {name: "", price: 0.00}
-    const [name, setName] = useState(product.name)
-    const [price, setPrice] = useState(product.price || 0.00)
-
-    useEffect(() => {
-        console.log(productId)
-    })
+const EditOverlay = ({ setEditing, productId, productName, productPrice }: { setEditing: Dispatch<SetStateAction<boolean>>, productId: string, productName:string, productPrice:number }) => {
+    const [name, setName] = useState(productName)
+    const [price, setPrice] = useState(productPrice)
 
     const handleUpdate = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault()
-        updatePrice(productId, name, price)
+        fbUpdatePrice(productId, name, price)
         setEditing(false)
     }
 

@@ -2,7 +2,7 @@ import Sectionheader from "@/components/sectionheader"
 import { useEffect, useState } from "react"
 
 const Calculate = () => {
-    const [bulkBuyingPrice, setBulkBuyingPrice] = useState<number>()
+    const [bulkBuyingPrice, setBulkBuyingPrice] = useState<number | undefined>()
     const [bulkSellingPrice, setBulkSellingPrice] = useState<number>()
     const [unitQty, setUnitQty] = useState<number>()
 

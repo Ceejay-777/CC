@@ -654,6 +654,10 @@ body {
   margin-left: auto;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -736,10 +740,6 @@ body {
   width: 1.5rem;
 }
 
-.w-\[120px\] {
-  width: 120px;
-}
-
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -763,6 +763,22 @@ body {
 
 .max-w-\[720px\] {
   max-width: 720px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
 }
 
 @keyframes spin {

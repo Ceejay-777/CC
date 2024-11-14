@@ -5,7 +5,6 @@ import Calculate from "./pages/calculate";
 
 const MyRoutes = () => {
   return (
-    <>
       <BrowserRouter>
         <Routes>
           <Route element={<SharedLayout />}>
@@ -14,7 +13,6 @@ const MyRoutes = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
   )
 }
 

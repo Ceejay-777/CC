@@ -1,17 +1,24 @@
-import { getProducts, searchProducts } from "@/storage"
+import { fbGetProducts, fbSearchProducts } from "@/firebaseStorage"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { SavedProductDetail } from "types"
 
-const Search = ({ setProducts }: { setProducts: Dispatch<SetStateAction<SavedProductDetail[]>> }) => {
+const Search = ({ setProducts }: {setProducts: Dispatch<SetStateAction<SavedProductDetail[]>> }) => {
     const [query, setQuery] = useState('')
 
-    useEffect(() => {
+    const handleSearch = async () => {
         if (query) {
             console.log(query)
-            const searchResults = searchProducts(query)
+            const searchResults = await fbSearchProducts(query)
             setProducts(searchResults)
         }
-        else setProducts(getProducts())
+        else {
+            console.log("Okay")
+            setProducts(await fbGetProducts())
+        }
+    }
+
+    useEffect(() => {
+        handleSearch()
     }, [query])
 
     return (

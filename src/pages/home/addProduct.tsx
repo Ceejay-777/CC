@@ -1,16 +1,14 @@
-import { addProduct, getProducts } from '@/firebaseStorage'
-import { Dispatch, SetStateAction, useState } from 'react'
-import { SavedProductDetail } from 'types'
+import { fbAddProduct } from '@/firebaseStorage'
+import { useState } from 'react'
 
-const AddProduct = ({ setProducts }: { setProducts: Dispatch<SetStateAction<Promise<SavedProductDetail[]>>> }) => {
+const AddProduct = () => {
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
 
-    const handleAddProduct = () => {
+    const handleAddProduct = async () => {
         if (name && price) {
             const product = { name, price: parseFloat(price) }
-            addProduct(product)
-            setProducts(getProducts())
+            fbAddProduct(product)
             setName('')
             setPrice('')
         }
