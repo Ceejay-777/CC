@@ -5,11 +5,6 @@ import { IsError } from "types";
 
 const Delete = ({ productId, setError, name }: { productId: string, setError: (isError: IsError) => void, name: string }) => {
 
-    // const refreshProducts = async () => {
-    //     const data = await getProducts();
-    //     setProducts(data);
-    // };
-
     const handleDelete = async () => {
         try {
             console.log(productId)
