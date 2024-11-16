@@ -19,10 +19,7 @@ const Delete = ({ productId, setError, name }: { productId: string, setError: (i
 
     return (
         <div onClick={handleDelete} className="w-6">
-            {/* {isLoading ? <div className="animate-spin">
-                <Loader2 color="red"/>
-            </div> :
-            } */}
+            
             <Trash2 color="red" />
         </div>
     )
